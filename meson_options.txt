@@ -21,7 +21,7 @@
 option(
   'platforms',
   type : 'array',
-  value : ['auto'],
+  value : ['x11', "drm"],
   choices : [
     '', 'auto', 'x11', 'wayland', 'drm', 'surfaceless', 'haiku', 'android',
   ],
@@ -30,7 +30,7 @@ option(
 option(
   'dri3',
   type : 'combo',
-  value : 'auto',
+  value : 'true',
   choices : ['auto', 'true', 'false'],
   description : 'enable support for dri3'
 )
@@ -73,7 +73,7 @@ option(
 option(
   'gallium-vdpau',
   type : 'combo',
-  value : 'auto',
+  value : 'false',
   choices : ['auto', 'true', 'false'],
   description : 'enable gallium vdpau state tracker.',
 )
@@ -86,7 +86,7 @@ option(
 option(
   'gallium-xvmc',
   type : 'combo',
-  value : 'auto',
+  value : 'false',
   choices : ['auto', 'true', 'false'],
   description : 'enable gallium xvmc state tracker.',
 )
@@ -99,7 +99,7 @@ option(
 option(
   'gallium-omx',
   type : 'combo',
-  value : 'auto',
+  value : 'disabled',
   choices : ['auto', 'disabled', 'bellagio', 'tizonia'],
   description : 'enable gallium omx state tracker.',
 )
@@ -112,7 +112,7 @@ option(
 option(
   'gallium-va',
   type : 'combo',
-  value : 'auto',
+  value : 'false',
   choices : ['auto', 'true', 'false'],
   description : 'enable gallium va state tracker.',
 )
@@ -125,7 +125,7 @@ option(
 option(
   'gallium-xa',
   type : 'combo',
-  value : 'auto',
+  value : 'false',
   choices : ['auto', 'true', 'false'],
   description : 'enable gallium xa state tracker.',
 )
@@ -176,7 +176,7 @@ option(
 option(
   'gles1',
   type : 'boolean',
-  value : true,
+  value : false,
   description : 'Build support for OpenGL ES 1.x'
 )
 option(
@@ -201,14 +201,14 @@ option(
 option(
   'glx',
   type : 'combo',
-  value : 'auto',
+  value : 'dri',
   choices : ['auto', 'disabled', 'dri', 'xlib', 'gallium-xlib'],
   description : 'Build support for GLX platform'
 )
 option(
   'egl',
   type : 'combo',
-  value : 'auto',
+  value : 'true',
   choices : ['auto', 'true', 'false'],
   description : 'Build support for EGL platform'
 )
