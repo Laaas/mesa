@@ -26,6 +26,7 @@
 
 #include <stdio.h>
 #include <inttypes.h>  /* for PRId64 macro */
+#include <unistd.h>
 
 #include "glheader.h"
 #include "imports.h"
@@ -956,6 +957,19 @@ _mesa_VertexAttribPointer(GLuint index, GLint size, GLenum type,
                              GLsizei stride, const GLvoid *ptr)
 {
    GET_CURRENT_CONTEXT(ctx);
+
+   // NS2-specific hack:
+   // Some times NS2 calls this function
+   // without having a VBO bound.
+   // This avoids that problem by just not doing it.
+   if (
+	   ctx->Array.VAO == ctx->Array.DefaultVAO ||
+	   !_mesa_is_bufferobj(ctx->Array.ArrayBufferObj)
+   ) {
+      const char string[] = "Detected invalid call to glVertexAttribPointer!";
+      write(2, string, sizeof string - 1);
+      return;
+   }
 
    GLenum format = get_array_format(ctx, BGRA_OR_4, &size);
    if (index >= ctx->Const.Program[MESA_SHADER_VERTEX].MaxAttribs) {
