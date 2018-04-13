@@ -21,7 +21,7 @@
 option(
   'platforms',
   type : 'array',
-  value : ['x11', "drm"],
+  value : ['x11'],
   choices : [
     '', 'auto', 'x11', 'wayland', 'drm', 'surfaceless', 'haiku', 'android',
   ],
@@ -208,7 +208,7 @@ option(
 option(
   'egl',
   type : 'combo',
-  value : 'true',
+  value : 'false',
   choices : ['auto', 'true', 'false'],
   description : 'Build support for EGL platform'
 )
