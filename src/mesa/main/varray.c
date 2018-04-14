@@ -966,7 +966,7 @@ _mesa_VertexAttribPointer(GLuint index, GLint size, GLenum type,
 	   ctx->Array.VAO == ctx->Array.DefaultVAO ||
 	   !_mesa_is_bufferobj(ctx->Array.ArrayBufferObj)
    ) {
-      const char string[] = "Detected invalid call to glVertexAttribPointer!";
+      const char string[] = "Detected invalid call to glVertexAttribPointer!\n";
       write(2, string, sizeof string - 1);
       return;
    }
