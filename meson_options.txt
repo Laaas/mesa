@@ -37,7 +37,7 @@ option(
 option(
   'dri-drivers',
   type : 'array',
-  value : ['auto'],
+  value : [],
   choices : ['', 'auto', 'i915', 'i965', 'r100', 'r200', 'nouveau', 'swrast'],
   description : 'List of dri drivers to build. If this is set to auto all drivers applicable to the target OS/architecture will be built'
 )
@@ -151,7 +151,7 @@ option(
 option(
   'vulkan-drivers',
   type : 'array',
-  value : ['auto'],
+  value : [],
   choices : ['', 'auto', 'amd', 'intel'],
   description : 'List of vulkan drivers to build. If this is set to auto all drivers applicable to the target OS/architecture will be built'
 )
