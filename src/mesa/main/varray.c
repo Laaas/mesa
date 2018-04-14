@@ -966,7 +966,7 @@ _mesa_VertexAttribPointer(GLuint index, GLint size, GLenum type,
 	   ctx->Array.VAO == ctx->Array.DefaultVAO ||
 	   !_mesa_is_bufferobj(ctx->Array.ArrayBufferObj)
    ) {
-      const char string[] = "Detected invalid call to glVertexAttribPointer!\n";
+      const char string[] = "Mesa-NS2: Detected invalid call to glVertexAttribPointer!\n";
       write(2, string, sizeof string - 1);
       return;
    }
@@ -1095,7 +1095,7 @@ _mesa_enable_vertex_array_attrib(struct gl_context *ctx,
    if (!vao->VertexAttrib[attrib].Enabled) {
       const GLbitfield array_bit = VERT_BIT(attrib);
       if (!(array_bit & vao->VertexAttribBufferMask)) {
-          const char string[] = "Detected call to glEnableVertexAttribArray for invalid VAO!";
+          const char string[] = "Mesa-NS2: Detected call to glEnableVertexAttribArray for invalid VAO!";
           write(2, string, sizeof string - 1);
           return;
       }
