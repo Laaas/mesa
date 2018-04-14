@@ -1093,9 +1093,15 @@ _mesa_enable_vertex_array_attrib(struct gl_context *ctx,
    assert(!vao->SharedAndImmutable);
 
    if (!vao->VertexAttrib[attrib].Enabled) {
+      const GLbitfield array_bit = VERT_BIT(attrib);
+      if (!(array_bit & vao->VertexAttribBufferMask)) {
+          const char string[] = "Detected call to glEnableVertexAttribArray for invalid VAO!";
+          write(2, string, sizeof string - 1);
+          return;
+      }
+
       /* was disabled, now being enabled */
       vao->VertexAttrib[attrib].Enabled = GL_TRUE;
-      const GLbitfield array_bit = VERT_BIT(attrib);
       vao->_Enabled |= array_bit;
       vao->NewArrays |= array_bit;
 
