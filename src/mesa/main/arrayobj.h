@@ -143,7 +143,7 @@ static inline GLbitfield
 _mesa_get_vao_vp_inputs(const struct gl_vertex_array_object *vao)
 {
    const gl_attribute_map_mode mode = vao->_AttributeMapMode;
-   return _mesa_vao_enable_to_vp_inputs(mode, vao->_Enabled);
+   return _mesa_vao_enable_to_vp_inputs(mode, vao->VertexAttribBufferMask);
 }
 
 
