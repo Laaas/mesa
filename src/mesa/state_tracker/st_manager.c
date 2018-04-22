@@ -846,7 +846,12 @@ st_api_create_context(struct st_api *stapi, struct st_manager *smapi,
 
    switch (attribs->profile) {
    case ST_PROFILE_DEFAULT:
-      api = API_OPENGL_COMPAT;
+      // NS2 hack:
+      // Use OPENGL_CORE even though
+      // NS2 wants a compat profile.
+      // This is to emulate a bug in the proprietary
+      // Nvidia drivers.
+      api = API_OPENGL_CORE;
       break;
    case ST_PROFILE_OPENGL_ES1:
       api = API_OPENGLES;
