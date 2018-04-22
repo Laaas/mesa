@@ -143,6 +143,8 @@ static inline GLbitfield
 _mesa_get_vao_vp_inputs(const struct gl_vertex_array_object *vao)
 {
    const gl_attribute_map_mode mode = vao->_AttributeMapMode;
+   // NS2 hack:
+   // Only use attribs that have an associated buffer
    return _mesa_vao_enable_to_vp_inputs(mode, vao->VertexAttribBufferMask);
 }
 

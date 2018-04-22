@@ -958,7 +958,7 @@ _mesa_VertexAttribPointer(GLuint index, GLint size, GLenum type,
 {
    GET_CURRENT_CONTEXT(ctx);
 
-   // NS2-specific hack:
+   // NS2 hack:
    // Some times NS2 calls this function
    // without having a VBO bound.
    // This avoids that problem by just not doing it.
