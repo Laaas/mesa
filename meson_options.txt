@@ -260,7 +260,7 @@ option(
 option(
   'lmsensors',
   type : 'combo',
-  value : 'auto',
+  value : 'false',
   choices : ['auto', 'true', 'false'],
   description : 'Enable HUD lmsensors support.'
 )
