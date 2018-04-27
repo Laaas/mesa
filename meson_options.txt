@@ -246,7 +246,7 @@ option(
 option(
   'valgrind',
   type : 'combo',
-  value : 'auto',
+  value : 'false',
   choices : ['auto', 'true', 'false'],
   description : 'Build with valgrind support'
 )
